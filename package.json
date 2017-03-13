@@ -15,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/basbilijam/market-place/issues"
   },
-  "homepage": "https://github.com/basbilijam/market-place#readme"
+  "homepage": "https://github.com/basbilijam/market-place#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-session": "^1.15.1",
+    "method-override": "^2.3.7",
+    "morgan": "^1.8.1",
+    "pg": "^6.1.4",
+    "pug": "^2.0.0-beta11",
+    "sequelize": "^3.30.2"
+  }
 }
