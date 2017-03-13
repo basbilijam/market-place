@@ -1,0 +1,14 @@
+/*Navbar application.pug*/
+
+nav {
+  background-color: white;
+  opacity: 0.5;
+}
+
+#home-button {
+  color: black;
+  margin-left: 5px;
+}
+nav ul li a{
+  color: black;
+}

@@ -8,26 +8,27 @@ html
     div(class="navbar-fixed")
       nav
         div(class="nav-wrapper")
-          a(href="#" class="brand-logo") Home
-          a(href="#" data-activates="mobile-demo" class="button-collapse")
-        ul(class="right hide-on-med-and-down")
-          li
-            a(href="login.pug") Login
-          li
-            a(href="register.pug") Register
-          li
-            a(href="dashboard.pug") Profile
-          li
-            a(href="mobile.html") Listings
-        ul(class="side-nav" id="mobile-demo")
-          li
-            a(href="login.pug") Login
-          li
-            a(href="register.pug") Register
-          li
-            a(href="dashboard.pug") Profile
-          li
-            a(href="Listings.pug") Listings
+          a(href="/" class="brand-logo" id="home-button") Home
+          a(href="/" data-activates="mobile-demo" class="button-collapse")
+            ul(class="right hide-on-med-and-down")
+              li
+                a(href="login") Login
+              li
+                a(href="register") Register
+              li
+                a(href="dashboard") Profile
+              li
+                a(href="listings") Listings
+            a(href="#" data-activates="mobile-demo" class="button-collapse")
+            ul(class="side-nav" id="mobile-demo")
+              li
+                a(href="authentication") Login
+              li
+                a(href="register") Register
+              li
+                a(href="dashboard") Profile
+              li
+                a(href="Listings") Listings
 
   script(src="https://code.jquery.com/jquery-2.1.1.min.js")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js")
