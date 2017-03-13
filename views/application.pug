@@ -1,0 +1,35 @@
+html
+  head
+    Title Blog
+    link(href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css")
+    link(rel="stylesheet" href="/custom.css")
+  body
+    div(class="navbar-fixed")
+      nav
+        div(class="nav-wrapper")
+          a(href="#!" class="brand-logo")
+          a(href="#" data-activates="mobile-demo" class="button-collapse")i(class="material-icons") Menu
+        ul(class="right hide-on-med-and-down")
+          li 
+            a(href="login.pug") Login
+          li
+            a(href="register.pug") Register
+          li
+            a(href="dashboard.pug") Profile
+          li
+            a(href="mobile.html") Listings
+        ul(class="side-nav" id="mobile-demo")
+          li
+            a(href="login.pug")Login
+          li
+            a(href="register.pug") Register
+          li
+            a(href="dashboard.pug") Profile
+          li
+            a(href="Listings.pug") Listings
+      
+  script(src="https://code.jquery.com/jquery-2.1.1.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js")
+
+  block content
