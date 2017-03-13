@@ -2,13 +2,16 @@
 const express = require ('express'),
       app = express();
 
+
+
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 app.use('/', express.static( __dirname+ '/public') );
 
 
-app.get('/', (req,res) =>{
-  res.send('HELLO!')
+// route to index page
+app.get('/', (req, res) => {
+  res.render('index')
 })
 
 
