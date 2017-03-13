@@ -2,8 +2,8 @@
 const express = require ('express'),
       session = require ('express-session'),
       app = express(),
-      authentication = require(__dirname +'/routes/authentication');
-      //register = require(__dirname +'/routes/register');
+      authentication = require(__dirname +'/routes/authentication'),
+      register = require(__dirname +'/routes/register');
 
 // sessions
 app.use(session({
@@ -18,7 +18,7 @@ app.set('views', __dirname + '/views');
 app.use('/', express.static( __dirname+ '/public') );
 
 app.use('/', authentication);
-//app.use('/', register);
+app.use('/', register);
 // route to index page
 app.get('/', (req, res) => {
   res.render('index')

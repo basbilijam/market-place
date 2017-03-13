@@ -3,7 +3,7 @@ const sequelize = require ('sequelize')
 const pg = require('pg')
 const express = require ('express')
 
-const db = new sequelize( 'marketplace', 'bas', 'bas', {
+const db = new sequelize( 'marketplace', 'nyle', 'nyle', {
   host: 'localhost',
   dialect: 'postgres'
 } )
@@ -30,20 +30,20 @@ db
       User.create( {
   			username: "Bas",
   			email: "bas@bas.com",
-  			password: "bas",
-        listing: FALSE,
-        companyname: null
-        location: null
-        style: null
+  			password: "bas"
+        // listing: FALSE,
+        // companyname: null,
+        // location: null,
+        // style: null
 		  } ),
       User.create ( {
         username: "Nyle",
         email: "nyle@nyle.com",
-        password: "nyle",
-        listing: TRUE,
-        companyname: "Nyle's delights"
-        location: "52.3702157, 4.895167899999933"
-        style: "Korean"
+        password: "nyle"
+        // listing: TRUE,
+        // companyname: "Nyle's delights",
+        // location: "52.3702157, 4.895167899999933",
+        // style: "Korean"
       })
     ])
   } )
