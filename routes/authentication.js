@@ -1,18 +1,19 @@
 const express = require ('express'),
       session = require ('express-session'),
-      router = express.Router();
+      router = express.Router(),
+      db = require(__dirname +'/../modules/m-db');
 
 
 
-// setting route -> log-in page
+//setting route -> log-in page
 router.get('/login', (req, res) => {
-  // if (req.session.user) {
-  //   res.render('dashboard', {
-  //     user: req.session.user
-  //   });
-  // } else {
+  if (req.session.user) {
+    res.render('dashboard', {
+      user: req.session.user
+    });
+  } else {
     res.render('login');
-  //}
+  }
 });
 
 
@@ -37,5 +38,17 @@ router.post('/login', (req, res) => {
     res.render('Please try again Username/Password wrong');
   });
 });
+
+router.get('/logout', (req,res) => {
+      req.session.destroy( (err) => {
+        console.log('Log Out'+req.session);
+        if (err) {
+          console.log(err);
+        } else {
+          res.redirect('/');
+        }
+      });
+    });
+
 
 module.exports = router;

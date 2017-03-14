@@ -3,6 +3,7 @@ const express = require ('express'),
       session = require ('express-session'),
       app = express(),
       authentication = require(__dirname +'/routes/authentication'),
+      db = require(__dirname + '/modules/m-db'),
       register = require(__dirname +'/routes/register');
 
 // sessions
@@ -24,6 +25,25 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
+
+
+
+//  for the search query
+// req.body.search
+//
+//
+// wrap query into function(promise pass the resolve to then)
+// router.post('/search', (req,res)=>{
+//
+//   sequelize.query('SELECT * FROM users WHERE name LIKE :search_name ',
+//   { replacements: { search_name: 'ben%'  }, type: sequelize.QueryTypes.SELECT }
+// ).then(function(projects) {
+//   res.render('search', {listings: foundlistings, query: searchQuery});
+//   console.log(projects)
+// }).catch( err => {
+//   console.log(err);
+// })
+// })
 
 
 app.listen(4001, (req, res) => {

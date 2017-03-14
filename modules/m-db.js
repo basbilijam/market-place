@@ -3,7 +3,7 @@ const sequelize = require ('sequelize')
 const pg = require('pg')
 const express = require ('express')
 
-const db = new sequelize( 'marketplace', 'bas', 'bas', {
+const db = new sequelize( 'marketplace', 'nyle', 'nyle', {
   host: 'localhost',
   dialect: 'postgres'
 } )
@@ -52,5 +52,5 @@ db
 // exporting database as a module
 module.exports = {
   conn: db,
-  User:User
+  User: User
 }
