@@ -19,16 +19,19 @@ router.get('/login', (req, res) => {
 
 
 router.post('/login', (req, res) => {
+  console.log('Just wanr the username', req.body.username);
   db.User.findOne( {
     where: {
       username: req.body.username
-    },
+    }
 
   }).then(user => {
 
     if (user.password === req.body.password) {
       req.session.visited = true;
+      console.log(req.session.visited);
       req.session.user = user;
+      console.log(req.session.user);
       res.render('dashboard', {
         user: user
       });
