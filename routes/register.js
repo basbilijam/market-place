@@ -14,16 +14,20 @@ router.get('/register', (req, res) => {
   res.render('register')
 })
 
+router.get('/registercompany', (req, res) => {
+  res.render('register-c')
+})
+
 // posting new user to database
 router.post('/register', (req, res) => {
   const newUser = {
     username: req.body.username,
     email: req.body.email,
-    password: req.body.password
-    // listing: req.body.listing,
-    // companyname: req.body.companyname,
-    // location: req.body.location,
-    // type: req.body.type
+    password: req.body.password,
+    listing: req.body.listing,
+    companyname: req.body.companyname,
+    location: req.body.location,
+    type: req.body.type
   }
   console.log(req.body)
   db.User.create(newUser).then()
