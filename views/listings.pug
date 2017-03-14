@@ -1,2 +1,7 @@
 extends ./application.pug
 block content
+  h3 Search results:
+    if results
+      each result in results
+        ul
+          li #{result.companyname} 

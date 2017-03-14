@@ -2,7 +2,8 @@ extends ./application.pug
 block content
   h3(class="main-header") Our cooking courses:
     div(class="input-field")
-      input(id="search" type="search" required)
-      label(class="label-icon" for="search") 
-      i(class="material-icons") search
-        i(class="material-icons") close
+      form(action="/search" method="post")
+        input(placeholder="search" name="search" id="search" type="search" required)
+        label(class="label-icon" for="search") 
+        i(class="material-icons") search
+          i(class="material-icons") close
