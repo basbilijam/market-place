@@ -23,7 +23,7 @@ const User = db.define( 'user', {
 } )
 
 db
-  .sync({ force: true })
+  .sync({ force: false })
   .then( (err) => {
     console.log('It worked!')
     return Promise.all ([

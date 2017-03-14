@@ -2,6 +2,7 @@ const express = require ('express')
 const router = express.Router()
 const sequelize = require ('sequelize')
 const bodyParser = require('body-parser')
+const bcrypt = require('bcrypt-nodejs')
 
 // connecting to databse
 const db = require('../modules/m-db')
@@ -20,19 +21,23 @@ router.get('/registercompany', (req, res) => {
 
 // posting new user to database
 router.post('/register', (req, res) => {
-  const newUser = {
-    username: req.body.username,
-    email: req.body.email,
-    password: req.body.password,
-    listing: req.body.listing,
-    companyname: req.body.companyname,
-    location: req.body.location,
-    type: req.body.type
-  }
-  console.log(req.body)
-  db.User.create(newUser).then()
-  console.log(newUser)
-  res.redirect('/')
+  bcrypt.hash(req.body.password, null, null, (err, hash) => {
+    const newUser = {
+      username: req.body.username,
+      email: req.body.email,
+      password: hash,
+      listing: req.body.listing,
+      companyname: req.body.companyname,
+      location: req.body.location,
+      type: req.body.type
+    }
+    console.log(req.body)
+    db.User.create(newUser).then()
+    console.log(newUser)
+    res.redirect('/')
+  })
+
+
 })
 
 module.exports = router

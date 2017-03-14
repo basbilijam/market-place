@@ -24,17 +24,17 @@ router.post('/login', (req, res) => {
       username: req.body.username
     }
   }).then(user => {
-    if (user.password === req.body.password) {
-      req.session.visited = true;
-      console.log(req.session.visited);
-      req.session.user = user;
-      console.log(req.session.user);
-      res.render('dashboard', {
-        user: user
-      });
-    } else {
-      res.render('wrongpassword');
-    }
+    bcrypt.compare(req.body.password, hash, (err, res) =>{
+      if (res === true) {
+        req.session.visited = true;
+        console.log(req.session.visited);
+        req.session.user = user;
+        console.log(req.session.user);
+        res.render('dashboard', { user: user });
+      } else {
+        res.render('wrongpassword');
+      }
+    })
   }).catch(err => {
     res.render('login');
   });
