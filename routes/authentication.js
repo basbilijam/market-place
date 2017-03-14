@@ -1,9 +1,10 @@
 const express = require ('express'),
       session = require ('express-session'),
+      bodyParser = require('body-parser'),
       router = express.Router(),
       db = require(__dirname +'/../modules/m-db');
 
-
+router.use(bodyParser.urlencoded({ extended: false }));
 
 //setting route -> log-in page
 router.get('/login', (req, res) => {
@@ -22,7 +23,7 @@ router.post('/login', (req, res) => {
     where: {
       username: req.body.username
     },
-    include: [ db.Listing ]
+
   }).then(user => {
 
     if (user.password === req.body.password) {
@@ -32,10 +33,10 @@ router.post('/login', (req, res) => {
         user: user
       });
     } else {
-      res.render('/login');
+      res.render('wrongpassword');
     }
   }).catch(err => {
-    res.render('Please try again Username/Password wrong');
+    res.render('login');
   });
 });
 
