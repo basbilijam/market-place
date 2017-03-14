@@ -32,18 +32,18 @@ db
   			email: "bas@bas.com",
   			password: "bas",
         listing: false,
-        companyname: null
-        // location: null,
-        // style: null
+        companyname: null,
+        location: null,
+        style: null
 		  } ),
       User.create ( {
         username: "Nyle",
         email: "nyle@nyle.com",
-        password: "nyle"
-        // listing: TRUE,
-        // companyname: "Nyle's delights",
-        // location: "52.3702157, 4.895167899999933",
-        // style: "Korean"
+        password: "nyle",
+        listing: true,
+        companyname: "Nyle's delights",
+        location: "52.3702157, 4.895167899999933",
+        style: "Korean"
       })
     ])
   } )
