@@ -4,11 +4,7 @@ const express = require('express')
       db = require (__dirname +'/m-db')
       router = express.Router()
 
-// for the search query
-// req.body.search
-
-
-// wrap query into function(promise pass the resolve to then)
+// search functionality on username
 const search = router.post('/search', (req, res) => {
   console.log("req body is " +req.body.search)
   let searchQuery = req.body.search

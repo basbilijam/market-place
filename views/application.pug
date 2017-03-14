@@ -11,14 +11,18 @@ html
           a(href="/" class="brand-logo" id="home-button") Home
           a(href="/" data-activates="mobile-demo" class="button-collapse") i(class="material-icons") menu
             ul(class="right hide-on-med-and-down")
-              li
-                a(href="login") Login
-              li
-                a(href="register") Register
-              li
-                a(href="dashboard") Profile
-              li
-                a(href="listings") Listings
+              if user
+                li
+                  a(href="logout") Logout
+                li
+                  a(href="dashboard") Profile
+                li
+                  a(href="listings") Listings
+              else
+                li 
+                  a(href="login") Login
+                li
+                  a(href="register") Register
             ul(class="side-nav" id="mobile-demo")
               li
                 a(href="authentication") Login

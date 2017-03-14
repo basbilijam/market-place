@@ -1,4 +1,3 @@
-
 const express = require ('express'),
       session = require ('express-session'),
       sequelize = require ('sequelize'),
@@ -29,12 +28,12 @@ app.use('/', authentication);
 app.use('/', register);
 app.use('/', search);
 
-
 // route to index page
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', {
+    user: req.session.user
+  })
 })
-
 
 app.listen(4001, (req, res) => {
   console.log('Server running on port 4001');

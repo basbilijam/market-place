@@ -17,16 +17,13 @@ router.get('/login', (req, res) => {
   }
 });
 
-
 router.post('/login', (req, res) => {
-  console.log('Just wanr the username', req.body.username);
+  console.log('The username is', req.body.username);
   db.User.findOne( {
     where: {
       username: req.body.username
     }
-
   }).then(user => {
-
     if (user.password === req.body.password) {
       req.session.visited = true;
       console.log(req.session.visited);
@@ -44,15 +41,14 @@ router.post('/login', (req, res) => {
 });
 
 router.get('/logout', (req,res) => {
-      req.session.destroy( (err) => {
-        console.log('Log Out'+req.session);
-        if (err) {
-          console.log(err);
-        } else {
-          res.redirect('/');
-        }
-      });
-    });
-
+  req.session.destroy( (err) => {
+    console.log('Log Out: '+req.session);
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/');
+    }
+  });
+});
 
 module.exports = router;
