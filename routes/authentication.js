@@ -18,6 +18,19 @@ router.get('/login', (req, res) => {
   }
 });
 
+router.get('/dashboard', (req, res) => {
+    db.User.findOne({
+      where: {
+        id: req.body.username
+      }
+      // including comments with user that wrote comment
+    }).then( theuser => {
+      console.log( 'Found the post ', theuser.get({plain: true}) )
+      res.render('dashboard', { user: theuser, user: req.session.user })
+    })
+  })
+
+
 router.post('/login', (req, res) => {
   console.log('The username is', req.body.username);
   db.User.findOne( {
@@ -43,9 +56,6 @@ router.post('/login', (req, res) => {
     });
   });
 });
-
-
-
 
 router.get('/logout', (req,res) => {
   req.session.destroy( (err) => {

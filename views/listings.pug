@@ -1,7 +1,9 @@
 extends ./application.pug
 block content
   h3 Search results:
-    if results
-      each result in results
-        ul
-          li #{result.companyname} 
+  if results
+    each result in results
+      ul
+        li #{result.companyname} 
+          li Location: #{result.location}
+            li Cuisine: #{result.type} 

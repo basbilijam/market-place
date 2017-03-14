@@ -1,3 +1,9 @@
 extends ./application.pug
 block content
   h3 Dashboard
+  if results
+    each user in user
+      ul
+        li #{user.companyname} 
+          li Location: #{user.location}
+            li Cuisine: #{user.type} 

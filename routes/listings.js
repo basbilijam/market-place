@@ -4,10 +4,10 @@ const express = require ('express'),
       db = require(__dirname + '/modules/m-db');
 
 // route to index page
-router.get('/', (req, res) => {
-  res.render('index', {
-    db.User.findAll
-  })
-})
-
-modules.exports = router
+// router.get('/', (req, res) => {
+//   res.render('index', {
+//     db.User.findAll
+//   })
+// })
+//
+// modules.exports = router
