@@ -29,7 +29,7 @@ router.post('/register', (req, res) => {
       listing: req.body.listing,
       companyname: req.body.companyname,
       location: req.body.location,
-      type: req.body.type
+      style: req.body.type
     }
     console.log(req.body)
     db.User.create(newUser).then()

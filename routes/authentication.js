@@ -18,42 +18,33 @@ router.get('/login', (req, res) => {
   }
 });
 
-router.get('/dashboard', (req, res) => {
-    db.User.findOne({
-      where: {
-        id: req.body.username
-      }
-      // including comments with user that wrote comment
-    }).then( theuser => {
-      console.log( 'Found the post ', theuser.get({plain: true}) )
-      res.render('dashboard', { user: theuser, user: req.session.user })
-    })
-  })
-
-
+// login function and rendering dashboard when logged in
 router.post('/login', (req, res) => {
-  console.log('The username is', req.body.username);
+  console.log('The user posted', req.body );
   db.User.findOne( {
     where: {
       username: req.body.username
     }
   }).then(user => {
+    console.log('Grabbed user', user)
     bcrypt.compare( req.body.password, user.password, (err, result) => {
-      if (result === true) {
+      console.log('Password compare result ' + result)
+      if (result) {
         req.session.visited = true;
         console.log(req.session.visited);
         req.session.user = user;
         console.log(req.session.user);
         res.render('dashboard', {
-          user: user
+          user: user,
+          user: req.session.user
         });
       }
       else {
         res.render('wrongpassword');
       }
-    }).catch(err => {
-      res.render('login');
-    });
+    })
+  }).catch(err => {
+    res.render('login');
   });
 });
 

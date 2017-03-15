@@ -1,6 +1,6 @@
 extends ./application.pug
 block content
-  h3 Register as a new user!
+  h3(id="registerheader") Register as a new user!
 
   div(class="row")
   form(id="login" class="col s6 z-depth-1 grey lighten-4 row" action="/register" method="post")
@@ -16,4 +16,4 @@ block content
         input(type="checkbox" class="filled-in" id="filled-in-box" checked="checked")
     button(class="btn waves-effect waves-light" type="submit" name="action") Submit
       i(class="material-icons right")
-    a(href="/registercompany") Want to register your company?
+    a(href="/registercompany" id="registercompanylink") Want to register your company?

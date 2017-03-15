@@ -13,4 +13,53 @@ nav ul li a{
   color: black;
 }
 
-/*register company form*/
+/*Search bar*/
+
+
+/*login form*/
+#loginheader {
+  text-align: center;
+}
+
+#login {
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  display: inline-block;
+  padding: 32px 48px 0px 48px;
+  border: 1px solid #EEE;
+}
+
+.row .col.s6 {
+  margin-left: 25%;
+}
+
+input {
+  background-color: transparent;
+}
+
+#username {
+  text-align: center;
+}
+
+#password {
+  text-align: center;
+}
+
+#email {
+  text-align: center;
+}
+
+#loginbutton {
+  text-align: center;
+}
+
+/*registration form*/
+
+#registerheader {
+  text-align: center;
+}
+
+#registercompanylink {
+  position: relative;
+}

@@ -9,6 +9,7 @@ const express = require ('express'),
       authentication = require(__dirname +'/routes/authentication'),
       db = require(__dirname + '/modules/m-db'),
       register = require(__dirname +'/routes/register'),
+      profile = require(__dirname +'/routes/dashboard'),
       search = require (__dirname + '/modules/m-search');
 
 // sessions
@@ -28,6 +29,7 @@ app.use('/', express.static( __dirname+ '/public') );
 app.use('/', authentication);
 app.use('/', register);
 app.use('/', search);
+app.use('/', profile);
 
 // route to index page
 app.get('/', (req, res) => {

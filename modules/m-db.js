@@ -2,6 +2,7 @@
 const sequelize = require ('sequelize')
 const pg = require('pg')
 const express = require ('express')
+const bcrypt = require('bcrypt-nodejs')
 
 const db = new sequelize( 'marketplace', process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
   host: 'localhost',
@@ -19,33 +20,35 @@ const User = db.define( 'user', {
   listing: sequelize.BOOLEAN,
   companyname: sequelize.STRING,
   location: sequelize.STRING,
-  type: sequelize.STRING
+  style: sequelize.STRING
 } )
 
 db
-  .sync({ force: false })
+  .sync({ force: true })
   .then( (err) => {
     console.log('It worked!')
-    return Promise.all ([
-      User.create( {
-  			username: "Bas",
-  			email: "bas@bas.com",
-  			password: "bas",
-        listing: false,
-        companyname: null,
-        location: null,
-        style: null
-		  } ),
-      User.create ( {
-        username: "Nyle",
-        email: "nyle@nyle.com",
-        password: "nyle",
-        listing: true,
-        companyname: "Nyle's delights",
-        location: "52.3702157, 4.895167899999933",
-        style: "Korean"
-      })
-    ])
+    bcrypt.hash("password", null, null, (err, hash) => {
+      return Promise.all ([
+        User.create( {
+    			username: "Bas",
+    			email: "bas@bas.com",
+    			password: hash,
+          listing: false,
+          companyname: null,
+          location: null,
+          style: null
+  		  } ),
+        User.create ( {
+          username: "Nyle",
+          email: "nyle@nyle.com",
+          password: hash,
+          listing: true,
+          companyname: "Nyle's delights",
+          location: "52.3702157, 4.895167899999933",
+          style: "Korean"
+        })
+      ])
+    })
   } )
   .catch( console.log.bind( console ) )
 
