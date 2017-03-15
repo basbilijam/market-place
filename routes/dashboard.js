@@ -11,7 +11,6 @@ router.use(session({
     cookie: { secure: false }
 }));
 
-
 // going back to your dashboard (profile) when logged in already
 router.get('/dashboard', (req, res) => {
   console.log("req is: "+req)

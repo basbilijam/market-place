@@ -9,6 +9,12 @@ nav {
   color: black;
   margin-left: 5px;
 }
+
+#menu-button{
+  color: black;
+  margin-left: 5px;
+}
+
 nav ul li a{
   color: black;
 }

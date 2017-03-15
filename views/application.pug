@@ -9,33 +9,41 @@ html
       nav
         div(class="nav-wrapper")
           a(href="/" class="brand-logo" id="home-button") Home
-          a(href="/" data-activates="mobile-demo" class="button-collapse") i(class="material-icons") menu
-            ul(class="right hide-on-med-and-down")
-              if user
-                li
-                  a(href="logout") Logout
-                li
-                  a(href="dashboard") Profile
-                li
-                  a(href="/") Search listings
-              else
-                li 
-                  a(href="login") Login
-                li
-                  a(href="register") Register
-                li
-                  a(href="/") Search listings
-            //- ul(class="side-nav" id="mobile-demo")
-            //-   li
-            //-     a(href="authentication") Login
-            //-   li
-            //-     a(href="register") Register
-            //-   li
-            //-     a(href="dashboard") Profile
-            //-   li
-            //-     a(href="Listings") Listings
+          a(href="/" data-activates="mobile-demo" class="button-collapse")
+            i(class="material-icons" id="menu-button") menu
+          ul(class="right hide-on-med-and-down")
+            if user
+              li
+                a(href="logout") Logout
+              li
+                a(href="dashboard") Profile
+              li
+                a(href="/") Search listings
+            else
+              li 
+                a(href="login") Login
+              li
+                a(href="register") Register
+              li
+                a(href="/") Search listings
+          ul(class="side-nav" id="mobile-demo")
+            if user
+              li
+                a(href="logout") Logout
+              li
+                a(href="dashboard") Profile
+              li
+                a(href="/") Search listings
+            else
+              li 
+                a(href="login") Login
+              li
+                a(href="register") Register
+              li
+                a(href="/") Search listings
 
   script(src="https://code.jquery.com/jquery-2.1.1.min.js")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js")
+  script(src="custom.js")
 
   block content
