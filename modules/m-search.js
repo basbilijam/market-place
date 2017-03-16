@@ -12,8 +12,8 @@ const search = router.post('/search', (req, res) => {
   let searchQuery = req.body.search
   db.User.findAll( {
     where: {
-      username: {
-        $like: '%'+searchQuery+'%'
+      postalcode: {
+        $like: searchQuery.substr(0, 2)+'%',
       }
     }
   }).then((result) => {

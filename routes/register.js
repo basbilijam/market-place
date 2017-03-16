@@ -72,6 +72,7 @@ router.post('/register', (req, res) => {
     // password: hash,
     company: req.body.company,
     location: req.body.location,
+    postalcode: req.body.postalcode,
     locationurl: gmAPI.staticMap(params),
     style: req.body.type
   }

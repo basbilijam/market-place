@@ -19,12 +19,13 @@ const User = db.define( 'user', {
 	password: sequelize.STRING,
   company: sequelize.STRING,
   location: sequelize.STRING,
+  postalcode: sequelize.STRING,
   locationurl: sequelize.STRING,
   style: sequelize.STRING
 } )
 
 db
-  .sync({ force: false })
+  .sync({ force: true })
   .then( (err) => {
     console.log('It worked!')
     bcrypt.hash("password", null, null, (err, hash) => {
@@ -35,6 +36,7 @@ db
     			password: hash,
           company: null,
           location: null,
+          postalcode: null,
           locationurl: null,
           style: null
   		  } ),
@@ -44,6 +46,7 @@ db
           password: hash,
           company: "Nyle's delights",
           location: "Kinkerstraat 12 Amsterdam",
+          postalcode: "1234AB",
           locationurl: null,
           style: "Korean"
         })
