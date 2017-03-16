@@ -19,9 +19,6 @@ router.get('/register', (req, res) => {
 router.get('/registercompany', (req, res) => {
   res.render('register-c')
 })
-
-
-
 // posting new user to database
 // router.post('/register', (req, res) => {
 //   bcrypt.hash(req.body.password, null, null, (err, hash) => {
@@ -51,14 +48,9 @@ var publicConfig = {
   //proxy:              'http://127.0.0.1:9999' // optional, set a proxy for HTTP requests
 };
 
-
-
-
 // posting new user to database with google maps directly
 router.post('/register', (req, res) => {
-
   console.log(req.body)
-
   const params = {
     center: req.body.location,
     zoom: 15,
@@ -78,21 +70,18 @@ router.post('/register', (req, res) => {
     username: req.body.username,
     email: req.body.email,
     // password: hash,
-    listing: req.body.listing,
-    companyname: req.body.companyname,
+    company: req.body.company,
     location: req.body.location,
     locationurl: gmAPI.staticMap(params),
     style: req.body.type
   }
-
   bcrypt.hash(req.body.password, null, null, (err, hash) => {
     newUser.password = hash
     db.User.create(newUser).then( () => {
       console.log(newUser)
-      console.log(gmAPI.staticMap(params));
+      console.log("Locationurl is: ", gmAPI.staticMap(params));
     })
   })
-
   res.redirect('/')
 
 })

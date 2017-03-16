@@ -17,15 +17,14 @@ const User = db.define( 'user', {
 	email: sequelize.STRING,
   // Password not hashed yet!!!
 	password: sequelize.STRING,
-  listing: sequelize.BOOLEAN,
-  companyname: sequelize.STRING,
+  company: sequelize.STRING,
   location: sequelize.STRING,
   locationurl: sequelize.STRING,
   style: sequelize.STRING
 } )
 
 db
-  .sync({ force: true })
+  .sync({ force: false })
   .then( (err) => {
     console.log('It worked!')
     bcrypt.hash("password", null, null, (err, hash) => {
@@ -34,18 +33,18 @@ db
     			username: "Bas",
     			email: "bas@bas.com",
     			password: hash,
-          listing: false,
-          companyname: null,
+          company: null,
           location: null,
+          locationurl: null,
           style: null
   		  } ),
         User.create ( {
           username: "Nyle",
           email: "nyle@nyle.com",
           password: hash,
-          listing: true,
-          companyname: "Nyle's delights",
+          company: "Nyle's delights",
           location: "Kinkerstraat 12 Amsterdam",
+          locationurl: null,
           style: "Korean"
         })
       ])
