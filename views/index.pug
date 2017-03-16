@@ -1,9 +1,36 @@
 extends ./application.pug
 block content
+  .div(class="header_wrapper")
   h3(class="main-header") Our cooking courses:
     div(class="input-field")
       form(action="/search" method="post")
         input(placeholder="search" name="search" id="search" type="search" required)
-        label(class="label-icon" for="search") 
+        label(class="label-icon" for="search")
         i(class="material-icons") search
           i(class="material-icons") close
+  .container
+    .row
+      .col.s12
+        h2.center.header.text_h2
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          span.span_h2 Phasellus
+          |  vestibulum lorem risus, nec suscipit lorem
+          span.span_h2 laoreet quis.
+      .col.s12.m4.l4
+        .center.promo.promo-example
+          i.mdi-image-flash-on
+          h5.promo-caption Speeds up development
+          p.light.center
+            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.
+      .col.s12.m4.l4
+        .center.promo.promo-example
+          i.mdi-social-group
+          h5.promo-caption User Experience Focused
+          p.light.center
+            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      .col.s12.m4.l4
+        .center.promo.promo-example
+          i.mdi-hardware-desktop-windows
+          h5.promo-caption Fully responsive
+          p.light.center
+            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
