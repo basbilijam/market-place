@@ -20,6 +20,7 @@ const User = db.define( 'user', {
   listing: sequelize.BOOLEAN,
   companyname: sequelize.STRING,
   location: sequelize.STRING,
+  locationurl: sequelize.STRING,
   style: sequelize.STRING
 } )
 
@@ -44,7 +45,7 @@ db
           password: hash,
           listing: true,
           companyname: "Nyle's delights",
-          location: "52.3702157, 4.895167899999933",
+          location: "Kinkerstraat 12 Amsterdam",
           style: "Korean"
         })
       ])

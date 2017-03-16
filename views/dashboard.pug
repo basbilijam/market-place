@@ -3,9 +3,9 @@ block content
   h3 Dashboard
       ul
         if user.companyname
-          li #{user.companyname} 
+          li #{user.companyname}
           p Location: #{user.location}
-          p Cuisine: #{user.style} 
+          p Cuisine: #{user.style}
+          img(src="https://maps.googleapis.com/maps/api/staticmap?center=Kinkerstraat%2012%20Amsterdam&zoom=15&size=500x400&maptype=roadmap&markers=color%3Agreen%7Clabel%3AA%7Cshadow%3Atrue%7CKinkerstraat%2012%20Amsterdam&key=AIzaSyBy1LYoxta3n2-pwyI5ipEr8vZzcB1Z_Yw" width="600" height="450" frameborder="0" style="border:0" allowfullscreen)
         else
-          li #{user.username} 
-          
+          li #{user.username}
