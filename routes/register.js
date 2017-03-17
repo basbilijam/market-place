@@ -4,6 +4,8 @@ const sequelize = require ('sequelize')
 const bodyParser = require('body-parser')
 const bcrypt = require('bcrypt-nodejs')
 const GoogleMapsAPI = require('googlemaps')
+const multer  = require('multer')
+const upload = multer({ dest: __dirname + '/../uploads/' })
 
 // connecting to databse
 const db = require('../modules/m-db')
@@ -16,29 +18,10 @@ router.get('/register', (req, res) => {
   res.render('register')
 })
 
+// setting up route to register page for a company
 router.get('/registercompany', (req, res) => {
   res.render('register-c')
 })
-// posting new user to database
-// router.post('/register', (req, res) => {
-//   bcrypt.hash(req.body.password, null, null, (err, hash) => {
-//     const newUser = {
-//       username: req.body.username,
-//       email: req.body.email,
-//       password: hash,
-//       listing: req.body.listing,
-//       companyname: req.body.companyname,
-//       location: req.body.location,
-//       style: req.body.type
-//     }
-//     console.log(req.body)
-//     db.User.create(newUser).then()
-//     console.log(newUser)
-//     res.redirect('/')
-//   })
-//
-//
-// })
 
 var publicConfig = {
   key: 'AIzaSyBy1LYoxta3n2-pwyI5ipEr8vZzcB1Z_Yw',
@@ -48,9 +31,10 @@ var publicConfig = {
   //proxy:              'http://127.0.0.1:9999' // optional, set a proxy for HTTP requests
 };
 
-// posting new user to database with google maps directly
-router.post('/register', (req, res) => {
-  console.log(req.body)
+// posting new user to database with google maps directly, adding the option to upload a picture.
+router.post('/register', upload.single('profile'), (req, res) => {
+  console.log('Req.body is', req.body)
+  //setting the parameters for the map that is associated to the user
   const params = {
     center: req.body.location,
     zoom: 15,
@@ -65,6 +49,7 @@ router.post('/register', (req, res) => {
       }
     ]
   }
+  // setting new map through googlemaps API
   const gmAPI = new GoogleMapsAPI(publicConfig);
   const newUser = {
     username: req.body.username,
@@ -74,8 +59,11 @@ router.post('/register', (req, res) => {
     location: req.body.location,
     postalcode: req.body.postalcode,
     locationurl: gmAPI.staticMap(params),
-    style: req.body.type
+    style: req.body.type,
+    picture: req.file
   }
+  console.log('req.file is: ', req.file);
+  // hashing the password with bcrypt module
   bcrypt.hash(req.body.password, null, null, (err, hash) => {
     newUser.password = hash
     db.User.create(newUser).then( () => {
@@ -84,7 +72,6 @@ router.post('/register', (req, res) => {
     })
   })
   res.redirect('/')
-
 })
 
 module.exports = router
