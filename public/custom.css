@@ -2,7 +2,21 @@
 
 nav {
   background-color: white;
-  opacity: 0.5;
+  opacity: 0.9;
+}
+
+@font-face {
+    font-family: 'Chalkduster';
+    src:url('webfonts_Chalkduster/Chalkduster.ttf.woff') format('woff'),
+        url('webfonts_Chalkduster/Chalkduster.ttf.svg#Chalkduster') format('svg'),
+        url('webfonts_Chalkduster/Chalkduster.ttf.eot'),
+        url('webfonts_Chalkduster/Chalkduster.ttf.eot?#iefix') format('embedded-opentype');
+        font-weight: normal;
+        font-style: normal;
+}
+
+h1{
+font-family: "Chalkduster";
 }
 
 #home-button {
@@ -27,8 +41,27 @@ nav ul li a{
     background-size: cover;
     position: relative;
 }
-/*Search bar*/
 
+.slogan{
+  background-color: transperant;
+  color: #fff;
+  width: 100%;
+  position: absolute;
+  left: 60%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+}
+
+/*Search bar*/
+.searchbar{
+  background-color: #fff;
+  width: 40vw;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 
 /*login form*/
 #loginheader {

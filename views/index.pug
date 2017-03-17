@@ -1,12 +1,12 @@
 extends ./application.pug
 block content
   .div(class="header_wrapper")
-  h3(class="main-header") Our cooking courses:
-    div(class="input-field")
+    h1.slogan Our cooking courses:
+    .div.searchbar.input-field
       form(action="/search" method="post")
         input(placeholder="search" name="search" id="search" type="search" required)
         label(class="label-icon" for="search")
-        i(class="material-icons") search
+        i(class="material-icons" left) search
           i(class="material-icons") close
   .container
     .row
@@ -34,3 +34,157 @@ block content
           h5.promo-caption Fully responsive
           p.light.center
             | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+    .container
+      h2.header.text_b Work
+      .row
+        .col.s12.m4.l4
+          .card
+            .card-image.waves-effect.waves-block.waves-light
+              img.activator(src='img/project1.jpg')
+            .card-content
+              span.card-title.activator.grey-text.text-darken-4
+                | Project Title
+                i.mdi-navigation-more-vert.right
+              p
+                a(href='#') Project link
+            .card-reveal
+              span.card-title.grey-text.text-darken-4
+                | Project Title
+                i.mdi-navigation-close.right
+              p
+                | Here is some more information about this project that is only revealed once clicked on.
+        .col.s12.m4.l4
+          .card
+            .card-image.waves-effect.waves-block.waves-light
+              img.activator(src='img/project2.jpeg')
+            .card-content
+              span.card-title.activator.grey-text.text-darken-4
+                | Project Title
+                i.mdi-navigation-more-vert.right
+              p
+                a(href='#') Project link
+            .card-reveal
+              span.card-title.grey-text.text-darken-4
+                | Project Title
+                i.mdi-navigation-close.right
+              p
+                | Here is some more information about this project that is only revealed once clicked on.
+        .col.s12.m4.l4
+          .card
+            .card-image.waves-effect.waves-block.waves-light
+              img.activator(src='img/project3.png')
+            .card-content
+              span.card-title.activator.grey-text.text-darken-4
+                | Project Title
+                i.mdi-navigation-more-vert.right
+              p
+                a(href='#') Project link
+            .card-reveal
+              span.card-title.grey-text.text-darken-4
+                | Project Title
+                i.mdi-navigation-close.right
+              p
+                | Here is some more information about this project that is only revealed once clicked on.
+        .col.s12.m4.l4
+          .card
+            .card-image.waves-effect.waves-block.waves-light
+              img.activator(src='img/project4.jpg')
+            .card-content
+              span.card-title.activator.grey-text.text-darken-4
+                | Project Title
+                i.mdi-navigation-more-vert.right
+              p
+                a(href='#') Project link
+            .card-reveal
+              span.card-title.grey-text.text-darken-4
+                | Project Title
+                i.mdi-navigation-close.right
+              p
+                | Here is some more information about this project that is only revealed once clicked on.
+        .col.s12.m4.l4
+          .card
+            .card-image.waves-effect.waves-block.waves-light
+              img.activator(src='img/project5.png')
+            .card-content
+              span.card-title.activator.grey-text.text-darken-4
+                | Project Title
+                i.mdi-navigation-more-vert.right
+              p
+                a(href='#') Project link
+            .card-reveal
+              span.card-title.grey-text.text-darken-4
+                | Project Title
+                i.mdi-navigation-close.right
+              p
+                | Here is some more information about this project that is only revealed once clicked on.
+        .col.s12.m4.l4
+          .card
+            .card-image.waves-effect.waves-block.waves-light
+              img.activator(src='img/project6.jpeg')
+            .card-content
+              span.card-title.activator.grey-text.text-darken-4
+                | Project Title
+                i.mdi-navigation-more-vert.right
+              p
+                a(href='#') Project link
+            .card-reveal
+              span.card-title.grey-text.text-darken-4
+                | Project Title
+                i.mdi-navigation-close.right
+              p
+                | Here is some more information about this project that is only revealed once clicked on.
+
+
+  footer#contact.page-footer.default_color.scrollspy
+    .container
+      .row
+        .col.l6.s12
+          form.col.s12(action='contact.php', method='post')
+            .row
+              .input-field.col.s6
+                i.mdi-action-account-circle.prefix.white-text
+                |
+                input#icon_prefix.validate.white-text(name='name', type='text')
+                |
+                label.white-text(for='icon_prefix') First Name
+              .input-field.col.s6
+                i.mdi-communication-email.prefix.white-text
+                |
+                input#icon_email.validate.white-text(name='email', type='email')
+                |
+                label.white-text(for='icon_email') Email-id
+              .input-field.col.s12
+                i.mdi-editor-mode-edit.prefix.white-text
+                textarea#icon_prefix2.materialize-textarea.white-text(name='message')
+                |
+                label.white-text(for='icon_prefix2') Message
+              .col.offset-s7.s5
+                button.btn.waves-effect.waves-light.red.darken-1(type='submit')
+                  | Submit
+                  i.mdi-content-send.right.white-text
+        .col.l3.s12
+          h5.white-text
+          ul
+            li
+              a.white-text(href='') Home
+            li
+              a.white-text(href='') Blog
+        .col.l3.s12
+          h5.white-text Social
+          ul
+            li
+              a.white-text(href='https://www.behance.net/joashp')
+                i.small.fa.fa-behance-square.white-text
+                |  Behance
+            li
+              a.white-text(href='https://www.facebook.com/joash.c.pereira')
+                i.small.fa.fa-facebook-square.white-text
+                |  Facebook
+            li
+              a.white-text(href='https://github.com/joashp')
+                i.small.fa.fa-github-square.white-text
+                |  Github
+            li
+              a.white-text(href='https://www.linkedin.com/in/joashp')
+                i.small.fa.fa-linkedin-square.white-text
+                |  Linkedin
