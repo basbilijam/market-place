@@ -1,8 +1,17 @@
 /*Navbar application.pug*/
 
+
+* {
+    font-family: "Roboto";
+}
+html {
+  font-family: "Roboto";
+}
+
 nav {
   background-color: white;
   opacity: 0.9;
+  font-family: "Roboto"
 }
 
 

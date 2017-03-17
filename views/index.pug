@@ -2,7 +2,7 @@ extends ./application.pug
 block content
   .div(class="header_wrapper")
     h1.slogan The Cooking Factory
-    .div.searchbar.input-field
+    .div.searchbar.input-field.light
       form(action="/search" method="post")
         input(placeholder="Enter postcode to search cooking schools in your area" name="search" id="search" type="search" required)
         label(class="label-icon" for="search")
@@ -11,8 +11,8 @@ block content
   .container
     .row
       .col.s12
-        h2.center.header.text_h2
-          | We offer the widest range of cooking schools in 
+        h3.center.header.text_h2
+          | We offer the widest range of cooking schools in
           span.span_h2 The Netherlands.
           |  Organizing a cooking event for your company, a party, or something else?
           span.span_h2  The Cooking Factory
@@ -86,11 +86,11 @@ block content
                 i.mdi-navigation-close.right
               p
                 | Here is some more information about this project that is only revealed once clicked on.
-                
+
   .container
     h2.center.header.text_h2 Find the place for your cooking workshop!
-    p 
+    p
       | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.
-  
+
 
   include ./footer.pug

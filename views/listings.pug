@@ -1,6 +1,6 @@
 extends ./application.pug
 block content
-  h3 Search results:
+  h6.center.header.text_h2 Search results:
   if results
     each result in results
       ul
@@ -8,14 +8,14 @@ block content
       .card.horizontal
         .card-image
           img(src="../images/pexels-photo-59016.jpeg", width="300" height="225")
-          .card-content
+          .card-content.light
             li #{result.company}
             li Location: #{result.location}
             li Cuisine: #{result.style}
             li Description:
-              p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              p.light Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-          .card-action
+          .card-action.light
             a(href='#') This is a link
 
         img(src=result.locationurl, width="600" height="450" frameborder="0" style="border:0" allowfullscreen)
