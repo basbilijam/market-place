@@ -1,16 +1,16 @@
 footer#contact.page-footer.default_color.scrollspy
   .container
     .row
-      .col.l8.s12
+      .col.l3.s12
         form.col.s12(action='/contact', method='post')
           .row#contactform
-            .input-field.col.s6
+            .input-field.col.s12
               i.mdi-action-account-circle.prefix.white-text
               |
               input#icon_prefix.validate.white-text(name='name', type='text')
               |
               label.white-text(for='icon_prefix') First Name
-            .input-field.col.s6
+            .input-field.col.s12
               i.mdi-communication-email.prefix.white-text
               |
               input#icon_email.validate.white-text(name='email', type='email')
@@ -21,7 +21,7 @@ footer#contact.page-footer.default_color.scrollspy
               textarea#icon_prefix2.materialize-textarea.white-text(name='message')
               |
               label.white-text(for='icon_prefix2') Message
-            .col.offset-s7.s5
+            .col.offset-s7.s12
               button.btn.waves-effect.waves-light.red.darken-1(type='submit')
                 | Submit
                 i.mdi-content-send.right.white-text
