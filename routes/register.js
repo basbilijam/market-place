@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const bcrypt = require('bcrypt-nodejs')
 const GoogleMapsAPI = require('googlemaps')
 const multer  = require('multer')
-const upload = multer({ dest: __dirname + '/../uploads/' })
+const upload = multer({ dest: __dirname + '/../public/uploads/' })
 
 // connecting to databse
 const db = require('../modules/m-db')
