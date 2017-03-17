@@ -1,25 +1,22 @@
 extends ./application.pug
 block content
   .div(class="header_wrapper")
-  h3 Dashboard
-      ul
-        if user.company
-          .col.s12.m7
-          h2.header #{user.company}
-          .card.horizontal
-            .card-image
-              img(src="../images/pexels-photo-59016.jpeg", width="300" height="225")
-            .card-stacked
-              .card-content
-                p I am a very simple card. I am good at containing small bits of information.
-              .card-action
-                a(href='#') This is a link
-          li #{user.company}
-          p Location: #{user.location}
-          p Cuisine: #{user.style}
-          img(src=user.locationurl, width="600" height="450" frameborder="0" style="border:0" allowfullscreen)
+  h2 Dashboard
+  ul
+    if user.company
+      .col.s12.m7
+      .card.horizontal
+        .card-image
           img(src="../images/pexels-photo-59016.jpeg", width="300" height="225")
-        else
-          li #{user.username}
+          .card-content
+            li #{user.company}
+            li Location: #{user.location}
+            li Cuisine: #{user.style}
+            li Description:
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      img(src=user.locationurl, width="100%" height="500" frameborder="0" style="border:0" allowfullscreen)
+
+    else
+      li #{user.username}
 
   include ./footer.pug
