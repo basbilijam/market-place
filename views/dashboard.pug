@@ -2,12 +2,11 @@ extends ./application.pug
 block content
   h3 Dashboard
       ul
-        if user.company
-          li #{user.company}
+        if user.companyname
+          li #{user.companyname}
           p Location: #{user.location}
           p Cuisine: #{user.style}
           img(src=user.locationurl, width="600" height="450" frameborder="0" style="border:0" allowfullscreen)
           img(src=result.picture, width="300" height="225")
         else
           li #{user.username}
-          iframe(src=user.locationurl, width="600" height="450" frameborder="0" style="border:0" allowfullscreen)
