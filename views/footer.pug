@@ -1,33 +1,9 @@
-extends ./application.pug
-block content
-  .div(class="header_wrapper")
-  h3 Dashboard
-      ul
-        if user.company
-          .col.s12.m7
-          h2.header #{user.company}
-          .card.horizontal
-            .card-image
-              img(src="../images/pexels-photo-59016.jpeg", width="300" height="225")
-            .card-stacked
-              .card-content
-                p I am a very simple card. I am good at containing small bits of information.
-              .card-action
-                a(href='#') This is a link
-          li #{user.company}
-          p Location: #{user.location}
-          p Cuisine: #{user.style}
-          img(src=user.locationurl, width="600" height="450" frameborder="0" style="border:0" allowfullscreen)
-          img(src="../images/pexels-photo-59016.jpeg", width="300" height="225")
-        else
-          li #{user.username}
-
 footer#contact.page-footer.default_color.scrollspy
   .container
     .row
-      .col.l6.s12
-        form.col.s12(action='contact.php', method='post')
-          .row
+      .col.l8.s12
+        form.col.s12(action='/contact', method='post')
+          .row#contactform
             .input-field.col.s6
               i.mdi-action-account-circle.prefix.white-text
               |
@@ -49,13 +25,6 @@ footer#contact.page-footer.default_color.scrollspy
               button.btn.waves-effect.waves-light.red.darken-1(type='submit')
                 | Submit
                 i.mdi-content-send.right.white-text
-      .col.l3.s12
-        h5.white-text
-        ul
-          li
-            a.white-text(href='') Home
-          li
-            a.white-text(href='') Blog
       .col.l3.s12
         h5.white-text Social
         ul
