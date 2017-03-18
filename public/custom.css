@@ -8,6 +8,10 @@ html {
   font-family: "Roboto";
 }
 
+.right_1{
+  right: 55%;
+}
+
 .btn{
   background-color: black;
 }
