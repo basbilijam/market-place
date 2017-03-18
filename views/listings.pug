@@ -16,10 +16,10 @@ block content
               p.light Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
           .card-action.light
-            a(href='/show-1/'+result.id) Show this cooking school
-            
+            a(href='/show-1/'+result.id name="id") Show this cooking school
+
         img(src=result.locationurl, width="600" height="450" frameborder="0" style="border:0" allowfullscreen)
-  else 
+  else
     h6.center.header.text_h2 Sorry, no results in that area!
-    
+
   include ./footer.pug

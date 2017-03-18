@@ -8,6 +8,10 @@ html {
   font-family: "Roboto";
 }
 
+.btn{
+  background-color: black;
+}
+
 nav {
   background-color: white;
   opacity: 0.9;
