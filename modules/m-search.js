@@ -1,9 +1,9 @@
-const express = require('express')
-      sequelize = require ('sequelize')
-      bodyParser = require ('body-parser')
-      db = require (__dirname +'/m-db')
-      router = express.Router()
-      GoogleMapsAPI = require('googlemaps')
+const express = require('express'),
+      sequelize = require ('sequelize'),
+      bodyParser = require ('body-parser'),
+      db = require (__dirname +'/m-db'),
+      router = express.Router(),
+      GoogleMapsAPI = require('googlemaps');
       //googleMapsClient = require('@google/maps').createClient({key: 'AIzaSyBqYbVHxiv8ebhz4tUZVH6Byj7s2A_4HqE'});
 
 //search functionality on username
@@ -24,6 +24,18 @@ const search = router.post('/search', (req, res) => {
   })
 })
 
+// render the show 1 user page through the unique id
+router.get('/show-1/:id', (req, res) => {
+  console.log('Checking for school with id ' + req.params.id)
+  db.User.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then( school => {
+    console.log( 'Found the school ', school.get({plain: true}) )
+    res.render('show-1', { school: school, user: req.session.user})
+  })
+})
 
 // var publicConfig = {
 //   key: 'AIzaSyBy1LYoxta3n2-pwyI5ipEr8vZzcB1Z_Yw',
@@ -86,10 +98,5 @@ const search = router.post('/search', (req, res) => {
 //     }
 //   });
 // })
-
-
-
-
-
 
 module.exports = search
