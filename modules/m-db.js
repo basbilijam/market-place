@@ -26,7 +26,7 @@ const User = db.define( 'user', {
 } )
 
 db
-  .sync({ force: false })
+  .sync({ force: true })
   .then( (err) => {
     console.log('It worked!')
     bcrypt.hash("password", null, null, (err, hash) => {

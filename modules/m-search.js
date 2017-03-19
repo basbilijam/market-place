@@ -33,6 +33,7 @@ router.get('/show-1/:id', (req, res) => {
     }
   }).then( school => {
     console.log( 'Found the school ', school.get({plain: true}) )
+    console.log('Picture is', school.picture)
     res.render('show-1', { school: school, user: req.session.user})
   })
 })
