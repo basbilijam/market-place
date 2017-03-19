@@ -93,7 +93,7 @@ nav ul li a{
 }
 
 #login {
-  text-align: center;
+  text-align: left;
   margin-left: 25%;
   margin-right: 25%;
   display: inline-block;
@@ -110,15 +110,15 @@ input {
 }
 
 #username {
-  text-align: center;
+  text-align: left;
 }
 
 #password {
-  text-align: center;
+  text-align: left;
 }
 
 #email {
-  text-align: center;
+  text-align: left;
 }
 
 #loginbutton {
