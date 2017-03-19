@@ -19,8 +19,8 @@ const User = db.define( 'user', {
 	password: sequelize.STRING,
   company: sequelize.STRING,
   location: sequelize.STRING,
-  postalcode: sequelize.STRING(6),
-  locationurl: sequelize.STRING,
+  postalcode: sequelize.TEXT,
+  locationurl: sequelize.TEXT,
   style: sequelize.STRING,
   picture: sequelize.BLOB
 } )
