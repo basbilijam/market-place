@@ -26,7 +26,7 @@ const User = db.define( 'user', {
 } )
 
 db
-  .sync({ force: false })
+  .sync({ force: true })
   .then( (err) => {
     console.log('It worked!')
     bcrypt.hash("password", null, null, (err, hash) => {
@@ -35,11 +35,11 @@ db
     			username: "Bas",
     			email: "bas@bas.com",
     			password: hash,
-          company: null,
-          location: null,
-          postalcode: null,
-          locationurl: null,
-          style: null
+          company: "Kentucky Fried Chicken",
+          location: "Slijkstraat 5, Amsterdam",
+          postalcode: "1012 CM",
+          locationurl: "https://maps.googleapis.com/maps/api/staticmap?center=Slijkstraat%205%2C%20Amsterdam&zoom=15&size=500x400&maptype=roadmap&markers=color%3Agreen%7Clabel%3AA%7Cshadow%3Atrue%7CSlijkstraat%205%2C%20Amsterdam&key=AIzaSyBy1LYoxta3n2-pwyI5ipEr8vZzcB1Z_Yw",
+          style: "Dutch"
   		  } ),
         User.create ( {
           username: "Nyle",
@@ -48,8 +48,18 @@ db
           company: "Nyle's delights",
           location: "Kinkerstraat 12 Amsterdam",
           postalcode: "1234AB",
-          locationurl: null,
+          locationurl: "https://maps.googleapis.com/maps/api/staticmap?center=Kinkerstraat%2012%2C%20Amsterdam&zoom=15&size=500x400&maptype=roadmap&markers=color%3Agreen%7Clabel%3AA%7Cshadow%3Atrue%7CKinkerstraat%2012%2C%20Amsterdam&key=AIzaSyBy1LYoxta3n2-pwyI5ipEr8vZzcB1Z_Yw",
           style: "Korean"
+        }),
+        User.create ( {
+          username: "Klaus",
+          email: "klaus@nyle.com",
+          password: hash,
+          company: "Klau Currywurst",
+          location: "Waterlooplein 12 Amsterdam",
+          postalcode: "2010AB",
+          locationurl: "https://maps.googleapis.com/maps/api/staticmap?center=Waterlooplein%2012%2C%20Amsterdam&zoom=15&size=500x400&maptype=roadmap&markers=color%3Agreen%7Clabel%3AA%7Cshadow%3Atrue%7CWaterlooplein%2012%2C%20Amsterdam&key=AIzaSyBy1LYoxta3n2-pwyI5ipEr8vZzcB1Z_Yw",
+          style: "German"
         })
       ])
     })
