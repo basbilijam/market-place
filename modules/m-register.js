@@ -59,7 +59,7 @@ router.post('/register', upload.single('profile'), (req, res) => {
     location: req.body.location,
     postalcode: req.body.postalcode,
     locationurl: gmAPI.staticMap(params),
-    style: req.body.type,
+    style: req.body.style,
     picture: req.file
   }
   console.log('req.file is: ', req.file);
