@@ -56,6 +56,10 @@ nav ul li a{
   color: black;
 }
 
+#sidenav-overlay {
+  z-index: 0;
+}
+
 /*Header picture*/
 .header_wrapper{
 	height: 80vh;
