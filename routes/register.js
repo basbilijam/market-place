@@ -5,7 +5,20 @@ const bodyParser = require('body-parser')
 const bcrypt = require('bcrypt-nodejs')
 const GoogleMapsAPI = require('googlemaps')
 const multer  = require('multer')
-const upload = multer({ dest: __dirname + '/../public/uploads/' })
+const crypto = require('crypto')
+const path = require('path')
+
+const storage = multer.diskStorage({
+  destination: __dirname + '/../public/uploads/',
+  filename:  (req, file, cb) => {
+    crypto.pseudoRandomBytes(16,  (err, raw) => {
+      if (err) return cb(err)
+      cb(null, raw.toString('hex') + path.extname(file.originalname))
+    })
+  }
+})
+
+const upload = multer({ storage: storage })
 
 // connecting to databse
 const db = require('../modules/m-db')
@@ -60,9 +73,10 @@ router.post('/register', upload.single('profile'), (req, res) => {
     postalcode: req.body.postalcode,
     locationurl: gmAPI.staticMap(params),
     style: req.body.type,
-    picture: req.file
-  }
-  console.log('req.file is: ', req.file);
+    filename: req.file.filename
+    }
+
+  console.log('req.file is: ', req.file.filename);
   // hashing the password with bcrypt module
   bcrypt.hash(req.body.password, null, null, (err, hash) => {
     newUser.password = hash

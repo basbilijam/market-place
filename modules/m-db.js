@@ -22,7 +22,7 @@ const User = db.define( 'user', {
   postalcode: sequelize.TEXT,
   locationurl: sequelize.TEXT,
   style: sequelize.STRING,
-  picture: sequelize.BLOB
+  filename: sequelize.STRING
 } )
 
 db

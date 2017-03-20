@@ -1,9 +1,11 @@
 # market-place app
 
-Goal: create a market-place app
-Functionality:
-- Register
-- Authentication
-- Add listing to database (enter location based on Google Maps API)
-- Search through listings based on location
-- Date/time picker
+Goal: creating a market-place app
+Contains the following functionalities:
+- Registration form
+- Authentication:
+- Used bcrypt for hashing passwords
+- Add listing to database 
+- Using GoogleMaps API to generate a map on a user page base on their location
+- Search through listings based on location/postal code
+- Upload profile picture that is rendered when showing a user
