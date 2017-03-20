@@ -8,6 +8,7 @@ const multer  = require('multer')
 const crypto = require('crypto')
 const path = require('path')
 
+// settings for using multer to upload files and retrieving them when rendering in the frontend (keep the file extension)
 const storage = multer.diskStorage({
   destination: __dirname + '/../public/uploads/',
   filename:  (req, file, cb) => {
@@ -26,7 +27,7 @@ const db = require('../modules/m-db')
 // setting router sub app to use bodyparser
 router.use(bodyParser.urlencoded({ extended: false }))
 
-// setting up route ro register page
+// setting up route to register page
 router.get('/register', (req, res) => {
   res.render('register')
 })
